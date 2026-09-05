@@ -76,7 +76,7 @@ main {
 
 .page {
   width: min(900px, 100%);
-  margin: 0 auto;
+  margin: 0 auto 36px;
   min-height: 75vh;
   padding: 80px 44px;
   display: flex;
@@ -89,7 +89,6 @@ main {
   box-shadow: 0 28px 70px rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 28px;
-  margin-bottom: 36px;
 }
 
 .page:last-child {
@@ -118,6 +117,126 @@ main {
   max-width: 700px;
   margin: 0 auto 18px;
   line-height: 1.7;
+}
+
+/* Hero */
+.hero {
+  min-height: calc(100vh - 40px);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(141, 116, 184, 0.16), transparent 55%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  animation: heroFadeUp 1s ease both;
+}
+
+.hero-kicker {
+  color: var(--light-purple) !important;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 5px;
+  margin-bottom: 20px !important;
+}
+
+.hero h1 {
+  font-size: clamp(4rem, 11vw, 8rem);
+  text-shadow: 0 10px 35px rgba(0, 0, 0, 0.4);
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  max-width: 650px !important;
+  margin-bottom: 30px !important;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.hero-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 170px;
+  padding: 14px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.hero-button.primary {
+  color: var(--dark);
+  background: var(--light-purple);
+}
+
+.hero-button.secondary {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-button:hover {
+  transform: translateY(-4px);
+}
+
+.hero-button.primary:hover {
+  background: var(--white);
+}
+
+.hero-button.secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.35);
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: floatDown 2s ease-in-out infinite;
+}
+
+.scroll-indicator i {
+  font-size: 0.9rem;
+}
+
+@keyframes heroFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatDown {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 7px); }
 }
 
 .concerts {
@@ -207,11 +326,7 @@ main {
   text-decoration: none;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  transition:
-    color 0.2s ease,
-    background 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
 }
 
 .music-link i {
@@ -282,6 +397,27 @@ footer {
     min-height: 78vh;
     padding: 56px 20px;
     scroll-margin-top: 130px;
+  }
+
+  .hero {
+    min-height: calc(100vh - 28px);
+  }
+
+  .hero-kicker {
+    letter-spacing: 3px;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-button {
+    width: min(280px, 100%);
+  }
+
+  .scroll-indicator {
+    bottom: 20px;
   }
 
   .concert {
