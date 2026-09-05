@@ -12,383 +12,166 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://scentofrain.at/pictures/band.jpg" />
     <title>Scent of Rain – Official Website</title>
-    <style>
-        :root {
-          --dark: #121827;
-          --dark-transparent: rgba(18, 24, 39, 0.72);
-          --blue: #314c7a;
-          --purple: #8d74b8;
-          --light-purple: #c9b9ec;
-          --grey: #d9deea;
-          --white: #ffffff;
-        }
-
-        * {
-          box-sizing: border-box;
-          margin: 0;
-          padding: 0;
-        }
-
-        body {
-          min-height: 100vh;
-          font-family: Arial, Helvetica, sans-serif;
-          color: var(--white);
-          background: var(--dark);
-          overflow-x: hidden;
-        }
-
-        .page-background {
-          min-height: 100vh;
-          background:
-            linear-gradient(rgba(18, 24, 39, 0.45), rgba(18, 24, 39, 0.75)),
-            url("pictures/band.jpg") center/cover no-repeat;
-          display: flex;
-          flex-direction: column;
-        }
-
-        header {
-          width: 100%;
-          padding: 28px 24px 0;
-        }
-
-        nav {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 34px;
-          letter-spacing: 4px;
-          font-size: 0.8rem;
-          font-weight: 700;
-          text-transform: uppercase;
-        }
-
-        nav button {
-          background: none;
-          border: none;
-          color: var(--grey);
-          cursor: pointer;
-          letter-spacing: 4px;
-          font-weight: 700;
-          padding: 8px 0;
-          transition: color 0.2s ease, transform 0.2s ease;
-        }
-
-        nav button:hover,
-        nav button.active {
-          color: var(--light-purple);
-          transform: translateY(-2px);
-        }
-
-        main {
-          flex: 1;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 40px 24px 70px;
-          text-align: center;
-        }
-
-        .content-box {
-          width: min(900px, 100%);
-          padding: 44px;
-          border-radius: 28px;
-          background: var(--dark-transparent);
-          backdrop-filter: blur(8px);
-          box-shadow: 0 28px 70px rgba(0, 0, 0, 0.35);
-          border: 1px solid rgba(255, 255, 255, 0.14);
-        }
-
-        .page {
-          display: none;
-          animation: fadeIn 0.35s ease;
-        }
-
-        .page.active {
-          display: block;
-        }
-
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(8px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        h1 {
-          font-size: clamp(3rem, 8vw, 5.8rem);
-          line-height: 1;
-          margin-bottom: 18px;
-          font-family: Georgia, "Times New Roman", serif;
-        }
-
-        h2 {
-          font-size: 2.4rem;
-          margin-bottom: 24px;
-          font-family: Georgia, "Times New Roman", serif;
-          color: var(--light-purple);
-        }
-
-        p {
-          color: var(--grey);
-          max-width: 700px;
-          margin: 0 auto 18px;
-          line-height: 1.7;
-        }
-
-        .concerts {
-          display: grid;
-          gap: 16px;
-          text-align: left;
-          margin-top: 24px;
-        }
-
-        .concert {
-          display: grid;
-          grid-template-columns: 110px 1fr;
-          gap: 18px;
-          align-items: center;
-          padding: 18px;
-          border-radius: 18px;
-          background: rgba(255, 255, 255, 0.08);
-          border: 1px solid rgba(255, 255, 255, 0.12);
-        }
-
-        .date {
-          color: var(--light-purple);
-          font-weight: 800;
-          text-transform: uppercase;
-        }
-
-        .members {
-          display: grid;
-          grid-template-columns: repeat(5, 1fr);
-          gap: 16px;
-          margin-top: 24px;
-        }
-
-        .member {
-          background: rgba(255, 255, 255, 0.08);
-          border-radius: 18px;
-          overflow: hidden;
-          border: 1px solid rgba(255, 255, 255, 0.12);
-          text-align: left;
-        }
-
-        .member img {
-          width: 100%;
-          height: 145px;
-          object-fit: cover;
-          display: block;
-          background: #6c7484;
-        }
-
-        .member div {
-          padding: 14px;
-        }
-
-        .member h3 {
-          margin-bottom: 4px;
-          font-size: 1rem;
-        }
-
-        .member .role {
-          color: var(--light-purple);
-          font-size: 0.85rem;
-          font-weight: 700;
-          margin-bottom: 8px;
-        }
-
-        .member p {
-          margin: 0;
-          font-size: 0.85rem;
-          line-height: 1.5;
-        }
-
-        .contact-list {
-          margin-top: 22px;
-          color: var(--grey);
-          line-height: 1.9;
-        }
-
-        .contact-list a {
-          color: var(--white);
-          text-decoration: none;
-        }
-
-        .contact-list a:hover {
-          color: var(--light-purple);
-        }
-
-        footer {
-          padding: 18px 24px;
-          text-align: center;
-          font-size: 0.8rem;
-          color: rgba(255, 255, 255, 0.7);
-          background: rgba(18, 24, 39, 0.78);
-        }
-
-        @media (max-width: 900px) {
-          .members {
-            grid-template-columns: repeat(2, 1fr);
-          }
-        }
-
-        @media (max-width: 650px) {
-          nav {
-            flex-wrap: wrap;
-            gap: 18px;
-            letter-spacing: 2px;
-          }
-
-          nav button {
-            letter-spacing: 2px;
-          }
-
-          .content-box {
-            padding: 28px 20px;
-          }
-
-          .concert {
-            grid-template-columns: 1fr;
-          }
-
-          .members {
-            grid-template-columns: 1fr;
-          }
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 <div class="page-background">
     <header>
         <nav>
-            <button class="nav-button active" data-page="home">Home</button>
-            <button class="nav-button" data-page="about">About</button>
-            <button class="nav-button" data-page="music">Music</button>
-            <button class="nav-button" data-page="shows">Shows</button>
-            <button class="nav-button" data-page="contact">Contact</button>
+            <a class="nav-link active" href="#home">Home</a>
+            <a class="nav-link" href="#about">About</a>
+            <a class="nav-link" href="#music">Music</a>
+            <a class="nav-link" href="#shows">Shows</a>
+            <a class="nav-link" href="#contact">Contact</a>
         </nav>
     </header>
 
     <main>
-        <div class="content-box">
-            <section id="home" class="page active">
-                <h1>Scent of Rain</h1>
-                <p>We are Scent Of Rain - an indie pop band creating atmospheric melodies, cinematic soundscapes, and songs for midnight drives and rainy days.</p>
-            </section>
+        <section id="home" class="page">
+            <h1>Scent of Rain</h1>
+            <p>We are Scent Of Rain - an indie pop band creating atmospheric melodies, cinematic soundscapes, and songs for midnight drives and rainy days.</p>
+        </section>
 
-            <section id="about" class="page">
-                <h2>About</h2>
-                <p>Scent Of Rain creates indie pop that balances emotion and energy, combining soulful vocals, layered guitars, synth textures, and driving grooves into a sound that is nostalgic, modern, and unmistakably their own.</p>
+        <section id="about" class="page">
+            <h2>About</h2>
+            <p>Scent Of Rain creates indie pop that balances emotion and energy, combining soulful vocals, layered guitars, synth textures, and driving grooves into a sound that is nostalgic, modern, and unmistakably their own.</p>
 
-                <div class="members">
-                    <article class="member">
-                        <img src="pictures/drums.jpg" alt="Drums" />
-                        <div>
-                            <h3>Nico<br />Felice</h3>
-                            <div class="role">Drums</div>
-                            <p>Driving beats and subtle dynamics.</p>
-                        </div>
-                    </article>
+            <div class="members">
+                <article class="member">
+                    <img src="pictures/drums.jpg" alt="Drums" />
+                    <div>
+                        <h3>Nico<br />Felice</h3>
+                        <div class="role">Drums</div>
+                        <p>Driving beats and subtle dynamics.</p>
+                    </div>
+                </article>
 
-                    <article class="member">
-                        <img src="pictures/keys.jpg" alt="Keys" />
-                        <div>
-                            <h3>Jonas<br />Trattler</h3>
-                            <div class="role">Keys</div>
-                            <p>Atmospheric harmonies and melodies.</p>
-                        </div>
-                    </article>
+                <article class="member">
+                    <img src="pictures/keys.jpg" alt="Keys" />
+                    <div>
+                        <h3>Jonas<br />Trattler</h3>
+                        <div class="role">Keys</div>
+                        <p>Atmospheric harmonies and melodies.</p>
+                    </div>
+                </article>
 
-                    <article class="member">
-                        <img src="pictures/vocals.jpg" alt="Vocals" />
-                        <div>
-                            <h3>Amelie Wachauer</h3>
-                            <div class="role">Vocals</div>
-                            <p>Warm vocals and soulful texts.</p>
-                        </div>
-                    </article>
+                <article class="member">
+                    <img src="pictures/vocals.jpg" alt="Vocals" />
+                    <div>
+                        <h3>Amelie Wachauer</h3>
+                        <div class="role">Vocals</div>
+                        <p>Warm vocals and soulful texts.</p>
+                    </div>
+                </article>
 
-                    <article class="member">
-                        <img src="pictures/guitar.jpg" alt="Guitar" />
-                        <div>
-                            <h3>Ines<br />Etzlstorfer</h3>
-                            <div class="role">Guitar</div>
-                            <p>Dreamy textures and powerful strings.</p>
-                        </div>
-                    </article>
+                <article class="member">
+                    <img src="pictures/guitar.jpg" alt="Guitar" />
+                    <div>
+                        <h3>Ines<br />Etzlstorfer</h3>
+                        <div class="role">Guitar</div>
+                        <p>Dreamy textures and powerful strings.</p>
+                    </div>
+                </article>
 
-                    <article class="member">
-                        <img src="pictures/bass.jpg" alt="Bass-guitar" />
-                        <div>
-                            <h3>Thomas Panhuber</h3>
-                            <div class="role">Bass-guitar</div>
-                            <p>Warm and deep grooves.</p>
-                        </div>
-                    </article>
-                </div>
-            </section>
+                <article class="member">
+                    <img src="pictures/bass.jpg" alt="Bass-guitar" />
+                    <div>
+                        <h3>Thomas Panhuber</h3>
+                        <div class="role">Bass-guitar</div>
+                        <p>Warm and deep grooves.</p>
+                    </div>
+                </article>
+            </div>
+        </section>
 
-            <section id="music" class="page">
-                <h2>Music</h2>
-                <p>Recording in process.</p>
-                <!--<p>Links to Spotify, YouTube, SoundCloud, ....</p>
-                <p>For example: a new single, ep or music video.</p> -->
-            </section>
+        <section id="music" class="page">
+            <h2>Music</h2>
+            <p>Listen to Scent of Rain wherever you get your music.</p>
 
-            <section id="shows" class="page">
-                <h2>Shows</h2>
-                <p>More dates coming soon!</p>
+            <div class="music-links">
+                <a href="SPOTIFY-LINK" target="_blank" rel="noopener noreferrer" class="music-link">
+                    <i class="fa-brands fa-spotify"></i>
+                    <span>Spotify</span>
+                </a>
 
-                <!--
-                <p>Our next gigs:</p>
+                <a href="AMAZON-MUSIC-LINK" target="_blank" rel="noopener noreferrer" class="music-link">
+                    <i class="fa-brands fa-amazon"></i>
+                    <span>Amazon Music</span>
+                </a>
 
-                <div class="concerts">
-                    <article class="concert">
-                        <div class="date">23. Juli 2026</div>
-                        <div>
-                            <h3>Hemingway's Cocktail & Music Bar</h3>
-                            <p>Single Gig · Start 19:30 Uhr</p>
-                        </div>
-                    </article>
+                <a href="APPLE-MUSIC-LINK" target="_blank" rel="noopener noreferrer" class="music-link">
+                    <i class="fa-brands fa-apple"></i>
+                    <span>Apple Music</span>
+                </a>
 
-                    <article class="concert">
-                        <div class="date">24. Dezember 2026</div>
-                        <div>
-                            <h3>Christkindlmarkt Perg</h3>
-                            <p>Christmas Jazz Gig · Start 20:00 Uhr</p>
-                        </div>
-                    </article>
+                <a href="TIDAL-LINK" target="_blank" rel="noopener noreferrer" class="music-link">
+                    <i class="fa-solid fa-wave-square"></i>
+                    <span>TIDAL</span>
+                </a>
 
-                    <article class="concert">
-                        <div class="date">29. Mai 2027</div>
-                        <div>
-                            <h3>Bubble Days Linz</h3>
-                            <p>Festivalshow · Start 18:45 Uhr</p>
-                        </div>
-                    </article>
-                </div> -->
-            </section>
+                <a href="DEEZER-LINK" target="_blank" rel="noopener noreferrer" class="music-link">
+                    <i class="fa-solid fa-music"></i>
+                    <span>Deezer</span>
+                </a>
 
-            <section id="contact" class="page">
-                <h2>Contact</h2>
-                <p>For any inquiries:</p>
+                <!-- Activate when Bandcamp is available
+                <a href="BANDCAMP-LINK" target="_blank" rel="noopener noreferrer" class="music-link">
+                    <i class="fa-brands fa-bandcamp"></i>
+                    <span>Bandcamp</span>
+                </a>
+                -->
+            </div>
+        </section>
 
-                <div class="contact-list">
-                    <p>E-Mail:<a href="mailto:scentofrain.info@gmail.com">scentofrain.info@gmail.com</a></p>
-                    <p>Telephone: <a href="tel:+436642714166">+43 664 2714166</a></p>
-                    <p>Instagram: <a href="https://www.instagram.com/scentofrain_official" target="_blank" rel="noopener noreferrer">@scentofrain_official</a></p>
-                    <br />
-                    <p><strong>Imprint</strong></p>
-                    <p>Scent of Rain<br />Falterweg 81<br />4030 Linz<br />Austria</p>
-                    <p>Represented by: All <3</p>
-                </div>
-            </section>
-        </div>
+        <section id="shows" class="page">
+            <h2>Shows</h2>
+            <p>More dates coming soon!</p>
+
+            <!--
+            <p>Our next gigs:</p>
+            <div class="concerts">
+                <article class="concert">
+                    <div class="date">23. Juli 2026</div>
+                    <div>
+                        <h3>Hemingway's Cocktail & Music Bar</h3>
+                        <p>Single Gig · Start 19:30 Uhr</p>
+                    </div>
+                </article>
+
+                <article class="concert">
+                    <div class="date">24. Dezember 2026</div>
+                    <div>
+                        <h3>Christkindlmarkt Perg</h3>
+                        <p>Christmas Jazz Gig · Start 20:00 Uhr</p>
+                    </div>
+                </article>
+
+                <article class="concert">
+                    <div class="date">29. Mai 2027</div>
+                    <div>
+                        <h3>Bubble Days Linz</h3>
+                        <p>Festivalshow · Start 18:45 Uhr</p>
+                    </div>
+                </article>
+            </div>
+            -->
+        </section>
+
+        <section id="contact" class="page">
+            <h2>Contact</h2>
+            <p>For any inquiries:</p>
+
+            <div class="contact-list">
+                <p>E-Mail: <a href="mailto:scentofrain.info@gmail.com">scentofrain.info@gmail.com</a></p>
+                <p>Telephone: <a href="tel:+436642714166">+43 664 2714166</a></p>
+                <p>Instagram: <a href="https://www.instagram.com/scentofrain_official" target="_blank" rel="noopener noreferrer">@scentofrain_official</a></p>
+                <br />
+                <p><strong>Imprint</strong></p>
+                <p>Scent of Rain<br />Falterweg 81<br />4030 Linz<br />Austria</p>
+                <p>Represented by: All &lt;3</p>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -396,24 +179,6 @@
     </footer>
 </div>
 
-<script>
-    const buttons = document.querySelectorAll(".nav-button");
-    const pages = document.querySelectorAll(".page");
-
-    buttons.forEach((button) => {
-      button.addEventListener("click", () => {
-        const pageId = button.dataset.page;
-        const targetPage = document.getElementById(pageId);
-
-        if (!targetPage) return;
-
-        buttons.forEach((btn) => btn.classList.remove("active"));
-        pages.forEach((page) => page.classList.remove("active"));
-
-        button.classList.add("active");
-        document.getElementById(pageId).classList.add("active");
-      });
-    });
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>
