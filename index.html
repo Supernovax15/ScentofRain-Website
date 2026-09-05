@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
 <head>
     <meta charset="UTF-8" />
     <meta name="google-site-verification" content="4d6FJwrasVdMUnf9k5YjwH8vOsAPtGU7nWEtgAFBRKQ" />
@@ -223,6 +224,56 @@
           color: var(--light-purple);
         }
 
+        .music-links {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 16px;
+          margin-top: 28px;
+        }
+
+        .music-link {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 14px;
+          padding:  18px 20px;
+          border-radius: 18px;
+
+          color: var(--white);
+          text-decoration: none;
+
+          background: rgba(255, 255, 255, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.12);
+
+          transition:
+            color 0.2s ease,
+            background 0.2s ease,
+            border-color 0.2s ease,
+            transform 0.2s ease;
+        }
+
+        .music-link i {
+          font-size: 1.5rem;
+        }
+
+        .music-link span {
+          font-weight: 700;
+          font-size: 0.95rem;
+        }
+
+        .music-link:hover {
+          color: var(--light-purple);
+          background: rgba(255, 255, 255, 0.12);
+         border-color: rgba(255, 255, 255, 0.22);
+         transform: translateY(-2px);
+        }
+
+      @media (max-width: 650px) {
+        .music-links {
+          grid-template-columns: 1fr;
+        }
+      }
+
         footer {
           padding: 18px 24px;
           text-align: center;
@@ -334,11 +385,78 @@
             </section>
 
             <section id="music" class="page">
-                <h2>Music</h2>
-                <p>Recording in process.</p>
-                <!--<p>Links to Spotify, YouTube, SoundCloud, ....</p>
-                <p>For example: a new single, ep or music video.</p> -->
-            </section>
+    <h2>Music</h2>
+
+    <p>
+        Listen to us wherever you get your music.
+    </p>
+
+    <div class="music-links">
+
+        <a
+            href="SPOTIFY-LINK"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="https://open.spotify.com/artist/0TeNANcfiqPIAOrKyXf2Ic?si=tCQVInTzT82_SV493lacVw"
+        >
+            <i class="fa-brands fa-spotify"></i>
+            <span>Spotify</span>
+        </a>
+
+        <a
+            href="AMAZON-MUSIC-LINK"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="music-link"
+        >
+            <i class="fa-brands fa-amazon"></i>
+            <span>Amazon Music</span>
+        </a>
+
+        <a
+            href="APPLE-MUSIC-LINK"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="music-link"
+        >
+            <i class="fa-brands fa-apple"></i>
+            <span>Apple Music</span>
+        </a>
+
+        <a
+            href="TIDAL-LINK"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="music-link"
+        >
+            <i class="fa-solid fa-wave-square"></i>
+            <span>TIDAL</span>
+        </a>
+
+        <a
+            href="DEEZER-LINK"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="music-link"
+        >
+            <i class="fa-solid fa-music"></i>
+            <span>Deezer</span>
+        </a>
+
+        <!-- Activate when Bandcamp is available
+        <a
+            href="BANDCAMP-LINK"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="music-link"
+        >
+            <i class="fa-brands fa-bandcamp"></i>
+            <span>Bandcamp</span>
+        </a>
+        -->
+
+    </div>
+</section>
 
             <section id="shows" class="page">
                 <h2>Shows</h2>
